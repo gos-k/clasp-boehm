@@ -1,9 +1,12 @@
-
+GC = gc-8.0.4
+TARFILE = $(GC).tar.gz
 
 all:
-	(cd ./gc-8.0.4; ./configure --prefix=/opt/clasp-support --disable-parallel-mark --enable-threads=pthreads --enable-large-config --enable-handle-fork=yes)
-	mkdir -p /opt/clasp-support
-	make -C gc-8.0.4 -f makefile install
+	sudo mkdir -p /opt/clasp-support
+	sudo chown -R $(USER) /opt/clasp-support
+	(cd ./$(GC); ./configure --prefix=/opt/clasp-support --disable-parallel-mark --enable-threads=pthreads --enable-large-config --enable-handle-fork=yes)
+	make -C $(GC) -f makefile install
 
 get:
-	wget https://www.hboehm.info/gc/gc_source/gc-8.0.4.tar.gz
+	wget https://www.hboehm.info/gc/gc_source/$(TARFILE)
+	tar xvf $(TARFILE)
