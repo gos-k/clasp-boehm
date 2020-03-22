@@ -10,3 +10,7 @@ all:
 get:
 	wget https://www.hboehm.info/gc/gc_source/$(TARFILE)
 	tar xvf $(TARFILE)
+
+
+clean:
+	rm -rf $(GC)* *~
