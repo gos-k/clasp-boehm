@@ -10,7 +10,7 @@ all:
 
 build:
 	(cd ./$(GC); ./configure --prefix=/opt/clasp-support --disable-parallel-mark --enable-threads=pthreads --enable-large-config --enable-handle-fork=yes --enable-static=yes)
-	make -C $(GC) -f makefile install
+	make -C $(GC) -f Makefile install
 
 get:
 	wget https://www.hboehm.info/gc/gc_source/$(TARFILE)
